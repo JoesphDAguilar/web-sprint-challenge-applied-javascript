@@ -48,7 +48,12 @@ const tabsAppender = (selector) => {
   const tabCard = document.querySelector(selector);
   axios.get("http://localhost:5000/api/topics")
   .then(res => {
-    console.log(res.data.message);
+    console.log(res.data);
+    res.data.topics.forEach(topics => {
+      const topicTab = Tabs([topics]);
+      console.log(topicTab)
+      tabCard.appendChild(topicTab);
+    })
   })
   .catch(err => console.error(err));
 
