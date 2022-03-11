@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -64,27 +65,43 @@ const cardAppender = (selector) => {
   .then(res => {
     console.log(res.data.articles);
     const articleObj = {
-      bootstrap: res.data.articles.bootstrap[0],
-      javascript: res.data.articles.javascript[1],
-      jquery: res.data.articles.jquery[2],
-      node: res.data.articles.node[0],
-      technology: res.data.articles.technology[0]
+      bootstrap: res.data.articles.bootstrap,
+      javascript: res.data.articles.javascript,
+      jquery: res.data.articles.jquery,
+      node: res.data.articles.node,
+      technology: res.data.articles.technology
     }
-    //console.log({articleObj:articleObj.bootstrap})
-    const bootstrap = Card(articleObj.bootstrap);
-    cards.appendChild(bootstrap);
-
-    const javascript = Card(articleObj.javascript);
-    cards.appendChild(javascript);
     
-    const jquery = Card(articleObj.jquery);
-    cards.appendChild(jquery);
-    
-    const node = Card(articleObj.node);
-    cards.appendChild(node);
+    // const node = Card(articleObj.node);
+    // cards.appendChild(node);
 
-    const technology = Card(articleObj.technology);
-    cards.appendChild(technology);
+    // const technology = Card(articleObj.technology);
+    // cards.appendChild(technology);
+
+    articleObj.bootstrap.forEach(item => {
+      const bootstrap = Card(item);
+      cards.appendChild(bootstrap);
+    });
+
+    articleObj.javascript.forEach(item => {
+      const javascript = Card(item);
+      cards.appendChild(javascript);
+    })
+
+    articleObj.jquery.forEach(item => {
+      const jquery = Card(item);
+      cards.appendChild(jquery);
+    })
+
+    articleObj.node.forEach(item => {
+      const node = Card(item);
+      cards.appendChild(node);
+    })
+
+    articleObj.technology.forEach(item => {
+      const technology = Card(item);
+      cards.appendChild(technology);
+    })
     })
 
 }
