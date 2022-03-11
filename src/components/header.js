@@ -43,7 +43,6 @@ const headerAppender = (selector) => {
   const header = document.querySelector(selector);
   const headerMaker = Header({title: "Breaking News", date: "March 10th 2022", temp: '66'});
   header.appendChild(headerMaker);
-
 }
 
 export { Header, headerAppender }
