@@ -2,6 +2,7 @@
   "name": "applied-javascript",
   "version": "0.0.1",
   "main": "index.js",
+  
   "scripts": {
     "start": "fkill :5000 :3000 -s && concurrently \"npm:backend\" \"npm:frontend\"",
     "frontend": "webpack serve --open",
