@@ -58,16 +58,35 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
 
   //
-//   const cards = document.querySelector(selector);
-//   axios.get(`http://localhost:5000/api/articles`)
-//   .then(res => {
-//     console.log(res.data.articles)
-//     res.data.articles.forEach(article => {
-//       const articleCard = Card({article: article});
-//       cards.appendChild(articleCard);
-//     })
-//   })
-//   .catch(err => console.log(err));
+  const cards = document.querySelector(selector);
+
+  axios.get(`http://localhost:5000/api/articles`)
+  .then(res => {
+    console.log(res.data.articles);
+    const articleObj = {
+      bootstrap: res.data.articles.bootstrap[0],
+      javascript: res.data.articles.javascript[1],
+      jquery: res.data.articles.jquery[2],
+      node: res.data.articles.node[0],
+      technology: res.data.articles.technology[0]
+    }
+    //console.log({articleObj:articleObj.bootstrap})
+    const bootstrap = Card(articleObj.bootstrap);
+    cards.appendChild(bootstrap);
+
+    const javascript = Card(articleObj.javascript);
+    cards.appendChild(javascript);
+    
+    const jquery = Card(articleObj.jquery);
+    cards.appendChild(jquery);
+    
+    const node = Card(articleObj.node);
+    cards.appendChild(node);
+
+    const technology = Card(articleObj.technology);
+    cards.appendChild(technology);
+    })
+
 }
 
 export { Card, cardAppender }

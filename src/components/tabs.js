@@ -51,7 +51,6 @@ const tabsAppender = (selector) => {
     console.log(res.data);
     res.data.topics.forEach(topics => {
       const topicTab = Tabs([topics]);
-      console.log(topicTab)
       tabCard.appendChild(topicTab);
     })
   })
