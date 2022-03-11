@@ -37,7 +37,7 @@ const Card = (article) => {
 
   headline.textContent = `${article.headline}`;
   img.src = article.authorPhoto;
-  author.textContent = `${article.authorName}`;
+  authorName.textContent = `${article.authorName}`;
 
   cardDiv.addEventListener("click", function () {
     console.log(headline);
